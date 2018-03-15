@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require 'sinatra/base'
+require 'json'
 
 class Api < Sinatra::Base
 
@@ -7,8 +8,9 @@ class Api < Sinatra::Base
 		'Hello world!'
 	end
 
-  get '/' do
-    'Home'
+  get '/movies' do
+    content_type :json
+    File.read('data.json')
   end
 
 end
